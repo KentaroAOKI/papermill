@@ -226,10 +226,11 @@ def raise_for_execution_errors(nb, output_path):
         # Upgrade the Notebook to the latest v4 before writing into it
         nb = nbformat.v4.upgrade(nb)
 
-        # put the anchor before the cell with the error, before all the indices change due to the
-        # heading-prepending
-        nb.cells.insert(error.cell_index, error_anchor_cell)
-        nb.cells.insert(0, error_msg_cell)
+        if False: # TODO: make a switch for enhancement-exception-handling
+            # put the anchor before the cell with the error, before all the indices change due to the
+            # heading-prepending
+            nb.cells.insert(error.cell_index, error_anchor_cell)
+            nb.cells.insert(0, error_msg_cell)
 
-        write_ipynb(nb, output_path)
-        raise error
+            write_ipynb(nb, output_path)
+            raise error

@@ -72,7 +72,8 @@ class PapermillNotebookClient(NotebookClient):
                 self.execute_cell(cell, index)
             except CellExecutionError as ex:
                 self.nb_man.cell_exception(self.nb.cells[index], cell_index=index, exception=ex)
-                break
+                if False: # TODO: make a switch for enhancement-exception-handling
+                    break
             finally:
                 self.nb_man.cell_complete(self.nb.cells[index], cell_index=index)
 
