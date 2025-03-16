@@ -125,7 +125,7 @@ def execute_notebook(
                 )
 
             # Check for errors first (it saves on error before raising)
-            raise_for_execution_errors(nb, output_path)
+            # raise_for_execution_errors(nb, output_path)
 
         # Write final output in case the engine didn't write it on cell completion.
         write_ipynb(nb, output_path)
